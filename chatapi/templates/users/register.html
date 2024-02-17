@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}User Registration{% endblock title %}
+
+{% block content %}
+    <main class="form-signin w-100 m-auto text-center">
+        <form method="post">
+            {% csrf_token %}
+        <img class="mb-4" src="{% static '/img/bot.png' %}" alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">Inscription</h1>
+
+        <div class="form-floating">
+            {{form.username}}
+            <label for="floatingInput">E-mail</label>
+        </div>
+        <div class="form-floating">
+            {{form.password1}}
+            <label for="floatingPassword">Mot de passe</label>
+
+        </div>
+        <div class="form-floating">
+            {{form.password2}}
+            <label for="floatingPassword">Confirmer le mot de passe</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">S'inscrire</button>
+        <p class="mt-5 mb-3 text-muted">Vous avez déjà un compte? <br><a href="{% url 'login' %}">Se connecter</a> </p>
+        </form>
+    </main>
+
+{% endblock content %}
